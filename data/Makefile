@@ -5,7 +5,7 @@ CC = gcc
 CFLAGS = -O -Wall -m32
 LIBS = -lm
 
-all: btest fshow ishow
+all: btest fshow ishow 
 
 btest: btest.c bits.c decl.c tests.c btest.h bits.h
 	$(CC) $(CFLAGS) $(LIBS) -o btest bits.c btest.c decl.c tests.c
@@ -23,4 +23,8 @@ btestexplicit:
 clean:
 	rm -f *.o btest fshow ishow *~
 
+build-docker-image:
+	docker build -t csapp-lab-data .
 
+in-docker:
+	docker run -it --rm -v $PWD:/root/labs/data csapp-lab-data bash
