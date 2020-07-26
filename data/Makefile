@@ -27,4 +27,4 @@ build-docker-image:
 	docker build -t csapp-lab-data .
 
 in-docker:
-	docker run -it --rm -v $PWD:/root/labs/data csapp-lab-data bash
+	docker run -it --rm -v $(PWD):/root/labs/data csapp-lab-data bash
