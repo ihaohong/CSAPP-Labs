@@ -211,7 +211,9 @@ int isAsciiDigit(int x) {
  *   Rating: 3
  */
 int conditional(int x, int y, int z) {
-  return 2;
+		x = !!x;
+		x = ~x + 1;
+		return (x&y)|(~x&z);
 }
 /* 
  * isLessOrEqual - if x <= y  then return 1, else return 0 
@@ -221,7 +223,12 @@ int conditional(int x, int y, int z) {
  *   Rating: 3
  */
 int isLessOrEqual(int x, int y) {
-  return 2;
+	return 0;
+	//int isdiffsymbol  = (x >> 31) & (y >> 31);
+//	int samesymbol = !((y + (~x + 1)) >> 31);
+//	int diffsymbol = x >> 31;
+	
+//	return (isdiffsymbol&diffsymbol)|(~isdiffsymbol&samesymbol);
 }
 //4
 /* 
