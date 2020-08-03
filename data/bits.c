@@ -223,12 +223,13 @@ int conditional(int x, int y, int z) {
  *   Rating: 3
  */
 int isLessOrEqual(int x, int y) {
-	return 0;
-	//int isdiffsymbol  = (x >> 31) & (y >> 31);
-//	int samesymbol = !((y + (~x + 1)) >> 31);
-//	int diffsymbol = x >> 31;
-	
-//	return (isdiffsymbol&diffsymbol)|(~isdiffsymbol&samesymbol);
+	// 0x8000000
+	int temp = 0x80 << 24;
+        int isdiffsymbol  = (!!(x & temp) ^ !!(y & temp));
+        int samesymbol = !((y + (~x + 1)) >> 31);
+        int diffsymbol = x >> 31;
+
+        return (isdiffsymbol&diffsymbol)|(~isdiffsymbol&samesymbol);
 }
 //4
 /* 
